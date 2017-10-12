@@ -1,0 +1,40 @@
+img {
+	/*Keep the image inside of the parent no matter what*/
+	max-width: 100%;
+}
+
+.card {
+	perspective: 800px;
+	border: 2px solid black;
+}
+
+/*Card-holder is the child, it is the thing that will flip.
+I have 2 children, front and back, they do not flip... I do*/
+.card-holder {
+	position: relative;
+	transform-style: preserve-3d;
+	transition: 1s all;
+	cursor: pointer;
+}
+
+.card-front, .card-back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	backface-visibility: hidden;
+}
+
+.card-front {
+	transform: rotateY(180deg);
+}
+
+.card-back {
+	/*we are inside of CSS. Go up one with .. then down into images*/
+	background: url('..images/logo-bw.png') no-repeat 50% 50%;
+	height: 300px;
+	width: 100%;
+}
+
+.flip {
+	transform: rotateY(-180deg);
+}
